@@ -11,7 +11,7 @@ pushd lib
     cmake --build .
     cmake --install .
 popd
-if not exist "build" mkdir "build"
+if not exist build mkdir build
 pushd build
     cmake -D CMAKE_PREFIX_PATH=C:/example ..
     cmake --build .

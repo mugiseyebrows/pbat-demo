@@ -127,7 +127,7 @@ time /t > time.txt
 date /t > date.txt
 :: zip two files
 7z a -y data.zip time.txt date.txt
-if not exist "foo" mkdir "foo"
+if not exist foo mkdir foo
 rmdir /s /q bar || echo 1 > NUL
 xcopy /s /e /y /i src dst
 patch -N -p1 -i ..\patch.patch
@@ -402,7 +402,7 @@ pushd lib
     cmake --build .
     cmake --install .
 popd
-if not exist "build" mkdir "build"
+if not exist build mkdir build
 pushd build
     cmake -D CMAKE_PREFIX_PATH=C:/example ..
     cmake --build .
@@ -446,8 +446,7 @@ jobs:
     - name: build_app
       shell: cmd
       run: |
-        set PATH=C:\Program Files\7-Zip;%PATH%
-        if not exist "build" mkdir "build"
+        if not exist build mkdir build
         pushd build
             cmake -D CMAKE_PREFIX_PATH=C:/example ..
             cmake --build .
