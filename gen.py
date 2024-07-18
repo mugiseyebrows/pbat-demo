@@ -17,7 +17,7 @@ base = os.path.dirname(__file__)
 
 subprocess.run(['python', 'D:\dev\pbat\pbat\compile.py', base])
 
-lines = load_lines(os.path.join(base, "main.in.md"))
+lines = load_lines(os.path.join(base, "readme.in.md"))
 
 for i, line in enumerate(lines):
     m = re.match('%([a-z0-9_]+)', line, re.IGNORECASE)
@@ -43,5 +43,5 @@ for i, line in enumerate(lines):
             cont.append("#### " + os.path.basename(yml_name) + " (generated)\n```yaml\n" + yml_text + "\n```\n\n")
         lines[i] = "".join(cont)
 
-with open(os.path.join(base, "main.md"), "w", encoding='utf-8') as f:
+with open(os.path.join(base, "readme.md"), "w", encoding='utf-8') as f:
     f.write("".join(lines))
