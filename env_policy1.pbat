@@ -1,0 +1,9 @@
+def main
+    clear_path()
+    where curl
+    where patch
+    where rm
+    where bash
+    return()
+    download(http://example.com/foo.zip)
+    patch(test)

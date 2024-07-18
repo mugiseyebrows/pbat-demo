@@ -1,0 +1,4 @@
+include(dep1.pbat)
+
+def main depends on dep1
+    echo main

@@ -1,0 +1,21 @@
+def main
+    use(cmake)
+    :: download
+    download(http://example.com/foo.zip)
+    :: download unless exists
+    download(http://example.com/bar.zip, :cache)
+    :: unzip
+    unzip(foo.zip)
+    :: unzip unless bar exists
+    unzip(bar.zip, :t=bar)
+    :: unzip two files
+    unzip(bar.zip, part1.txt, part2.txt)
+    time /t > time.txt
+    date /t > date.txt
+    :: zip two files
+    zip(data.zip, time.txt, date.txt)
+    mkdir(foo)
+    rmdir(bar)
+    xcopy(src, dst)
+    patch(..\patch.patch, :p1, :N)
+    del(part1.txt, part2.txt)

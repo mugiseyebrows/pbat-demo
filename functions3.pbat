@@ -1,0 +1,5 @@
+def foo
+    echo foo
+
+def bar depends on foo
+    echo bar

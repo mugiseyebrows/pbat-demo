@@ -1,0 +1,29 @@
+def install_compiler
+    github_cache(C:\compiler, :k=compiler)
+    add_path(C:\compiler)
+    if_exist_return(C:\compiler\cl.exe)
+    download(https://example.com/compiler.zip, :cache)
+    unzip(compiler.zip, :o=C:\compiler, :t=C:\compiler\cl.exe)
+
+def build_lib
+    use(cmake)
+    use(ninja)
+    git_clone(https://example.com/lib.git)
+    pushd lib
+        cmake -D CMAKE_INSTALL_PREFIX=C:/example ..
+        cmake --build .
+        cmake --install .
+    popd
+
+def build_app depends on install_compiler and build_lib
+    github_checkout()
+    mkdir(build)
+    pushd build
+        cmake -D CMAKE_PREFIX_PATH=C:/example ..
+        cmake --build .
+    popd
+    zip(app.zip, build\app.exe, C:\example\bin\example.dll)
+    github_upload(app.zip)
+    github_release(app.zip)
+
+github-workflow 1

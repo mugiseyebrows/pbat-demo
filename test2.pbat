@@ -1,0 +1,23 @@
+def fn1
+    github_checkout()
+    download(http://example/foo, :cache)
+    echo fn1
+
+def fn2
+    github_setup_java(temurin, 21)
+    github_cache(test, :k=test)
+    use(cmake)
+    unzip(bar)
+    echo fn2
+
+def fn3
+    use(mingw, 11.2.0)
+    echo fn3
+    patch(this)
+
+def main depends on fn1 fn3
+    echo baz
+    github_upload(xxx)
+    github_release(zzz)
+    
+github-workflow 1

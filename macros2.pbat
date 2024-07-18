@@ -1,0 +1,7 @@
+def main
+    github_checkout()
+    time /t > time.txt
+    github_upload(time.txt)
+    github_release(time.txt)
+    
+github-workflow 1
