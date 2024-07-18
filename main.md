@@ -2,11 +2,11 @@
 
 Pbat is batch file preprocessor developed to introduce functions, macro expressions and automate PATH variable management.
 
-Pbat script is compiled into bat file to run localy and (optionaly) into yaml workflow to run on github workflow runner.
+Pbat script is compiled into bat file to run localy and (optionaly) into yaml workflow to run on github actions runner.
 
 # Functions
 
-Pbat script contains of functions. Each function represents one step of workflow. Functions introduced by `def` keyword. Function body consists of shell commands and macro expressions.
+Pbat script contains of functions. Each function represents one step of the workflow. Functions introduced by `def` keyword. Function body consists of shell commands and macro expressions.
 
 #### functions1.pbat (source)
 ```
@@ -81,6 +81,8 @@ Macro expression consists of name and comma-separated arguments enclosed in pare
 
 `patch(path, [:p1], [:N])` calls patch.
 
+`git_clone(url, [:ref=tag], [:pull])` clones git repo.
+
 #### macros1.pbat (source)
 ```
 def main
@@ -133,7 +135,7 @@ del /f /q part1.txt part2.txt
 ```
 
 
-There are few `github_` macros that do nothing for local script but add steps into github actions workflow.
+There are a number of `github_` macros that do nothing for local script but add steps into github actions workflow.
 
 `github_checkout()`
 
@@ -465,9 +467,13 @@ jobs:
 ```
 
 
-# Run
+# Install
 
-## Compile scripts
+```
+pip install pbat
+```
+
+# Compile scripts
 
 ```cmd
 python -m pbat.compile path/to/file/or/dir
@@ -477,7 +483,7 @@ or
 pbat path/to/file
 ```
 
-## Watch and compile
+# Watch and compile
 
 You can use `eventloop` to trigger `pbat` on filechange
 
