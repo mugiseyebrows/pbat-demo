@@ -16,7 +16,7 @@ date /t > date.txt
 :: zip two files
 7z a -y data.zip time.txt date.txt
 if not exist foo mkdir foo
-rmdir /s /q bar || echo 1 > NUL
+if exist bar rmdir /s /q bar
 xcopy /s /e /y /i src dst
 patch -N -p1 -i ..\patch.patch
 del /f /q part1.txt part2.txt
